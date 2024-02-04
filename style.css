@@ -52,25 +52,30 @@ table {
 
 .container{
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
-    grid-template-rows: 1fr 3fr 2fr;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 1fr 5fr;
     grid-template-areas: 
-        "nav header header"
-        "nav projects announcements"
-        "nav projects trending";
+        "sidebar header"
+        "sidebar main"
 }
-.nav{
-    grid-area: nav;
+.sidebar{
+    grid-area: sidebar;
+    display: grid;
+    grid-template-rows: 1fr 5fr 7fr;
 }
 .header{
     grid-area: header;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 1fr 2fr;
+
+}
+.main{
+    grid-area:main;
 }
 .announcements{
-    grid-area: announcements
 }
 .trending{
-    grid-area: trending;
 }
 .projects{
-    grid-area: projects;
 }
