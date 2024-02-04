@@ -46,3 +46,31 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+
+/*real code starts here*/
+
+.container{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 1fr 3fr 2fr;
+    grid-template-areas: 
+        "nav header header"
+        "nav projects announcements"
+        "nav projects trending";
+}
+.nav{
+    grid-area: nav;
+}
+.header{
+    grid-area: header;
+}
+.announcements{
+    grid-area: announcements
+}
+.trending{
+    grid-area: trending;
+}
+.projects{
+    grid-area: projects;
+}
