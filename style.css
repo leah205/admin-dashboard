@@ -72,10 +72,19 @@ table {
 }
 .main{
     grid-area:main;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: 
+        "projects announcements"
+        "projects trending";
 }
 .announcements{
+    grid-area: announcements;
 }
 .trending{
+    grid-area: trending;
 }
 .projects{
+    grid-area: projects;
 }
