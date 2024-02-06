@@ -49,19 +49,35 @@ table {
 
 
 /*real code starts here*/
+@font-face {
+    font-family: roboto;
+    src: url(./fonts/Roboto-Black.ttf);
+}
+@font-face {
+    font-family: roboto-light;
+    src: url(./fonts/Roboto-Light.ttf);
+}
 *{
     --main-color: rgb(18, 144, 255);
     --accent-color: rgb(255, 176, 29);
-    --background-color: rgb(228, 226, 226);
-    --main-text-color: rgb(161, 157, 157);
+    --background-color: rgb(236, 234, 234);
+    --main-text-color: rgb(215, 211, 211);
+    --main-p-color: gray;
     border: 0px;
+}
+:root{
+    font-family: roboto, sans-serif;
 
 }
+body{
+    padding-bottom: 0;
+}
+
 
 .container{
     display: grid;
     grid-template-columns: 1fr 4fr;
-    grid-template-rows: 18vh 82vh;
+    grid-template-rows: 18% 82%;
     grid-template-areas: 
         "sidebar header"
         "sidebar main";
@@ -73,6 +89,7 @@ table {
     grid-area: sidebar;
     display: grid;
     grid-template-rows: 1fr 5fr 7fr;
+    gap: 50px;
     font-weight: bold;
 }
 .sidebar h1{
@@ -80,8 +97,18 @@ table {
 }
 .sidebar ul{
     display:grid;
-    gap: 20px;
+    grid-template-columns: 1.5rem auto;
+    align-items: end;
+    column-gap: 15px;
+    row-gap: 20px;
     align-content: start;
+}
+.sidebar-header{
+    display:grid;
+    grid-template-columns: 3rem auto;
+    align-items: center;
+    
+
 }
 
 .header{
@@ -92,7 +119,7 @@ table {
     column-gap: 10px;
     row-gap: 10px;
     justify-items: space-between;
-    padding: 10px 50px 10px 10px;
+    padding: 10px 50px 10px 50px;
     border-bottom: 5px solid var(--main-text-color);
 }
 .search-bar{
@@ -136,8 +163,9 @@ input[type = "search"]{
 }
 .profile-container{
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 50px;
+    grid-template-columns: 1.5rem 3rem auto;
+    gap: 30px;
+    justify-content: center;
     align-items: center;
 }
 .header-buttons{
@@ -151,6 +179,7 @@ input[type = "search"]{
     background-color: var(--main-color);
     color: white;
     border-radius: 15px;
+    font: inherit;
 }
 .main{
     padding: 20px;
@@ -158,11 +187,14 @@ input[type = "search"]{
     grid-area:main;
     display: grid;
     grid-template-columns: 2fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap:25px;
+    grid-template-rows: auto auto;
+    gap:15px;
     grid-template-areas: 
         "projects announcements"
         "projects trending";  
+}
+.main p{
+    font-family: roboto-light;
 }
 h2{
     font-size: 1.5rem;
@@ -178,8 +210,8 @@ h3{
     font-weight: bold;
 }
 .card, 
-.announcements div, 
-.trending div{
+.announcements > div, 
+.trending > div{
     background-color: white;
     border-radius: 10px;
 }
@@ -201,23 +233,39 @@ h3{
     height: 200px;
     padding: 20px 10px 15px 10px;
     border-left: 5px solid var(--accent-color);
+    display: grid;
+    grid-template-rows: auto 1fr auto;
 }
 .card p, .announcements p{
-    color: var(--main-text-color);
+    color: var(--main-p-color);
+}
+.card-buttons{
+    display: grid;
+    grid-template-columns: repeat(3,1.5rem);
+    gap: 1.5rem;
+    justify-content: end;
+
 }
 .announcements div > div{
     padding:10px;
-
+    border-bottom: 1px solid var(--main-text-color);
+}
+.announcements div > div:last-child{
+    border: 0;
+}
+.announcements div{
+    padding: 20px;
 }
 .trending div > div{
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 50px 1fr;
     grid-template-rows: 1fr 1fr;
     grid-template-areas: 
     "profile-image profile-name"
     "profile-image project-name";
     padding: 10px;
-    gap: 10px;
+    row-gap: 5px;
+    column-gap:10px;
 }
 
 .trending div img{
@@ -226,12 +274,20 @@ h3{
     grid-column: 1/2;*/
 }
 .trending div p:nth-child(2){
+    font-family:roboto;
     grid-area:profile-name;
+    align-self: end;
 }
 .trending div p:nth-child(3){
+
     grid-area:project-name;
+    align-self: start;
 }
-.navigation li:nth-child(1)::before{
+/*.navigation li:nth-child(1)::before{
     content: url('./images/home.svg');
-}
+    display: inline-block;
+    width: 1.5rem;
+    margin-bottom: -10px;
+  
+}*/
 
